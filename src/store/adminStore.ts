@@ -127,8 +127,6 @@ export const useAdminStore = create<AdminState>()(
         
         set((state) => {
           const updatedOrders = [newOrder, ...state.orders];
-          console.log('Order added:', newOrder);
-          console.log('Total orders:', updatedOrders.length);
           return { orders: updatedOrders };
         });
         
@@ -205,6 +203,7 @@ export const useAdminStore = create<AdminState>()(
         isAdminAuthenticated: state.isAdminAuthenticated,
         adminUser: state.adminUser,
         orders: state.orders,
+        products: state.products,
       }),
     }
   )

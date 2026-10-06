@@ -20,6 +20,54 @@ interface CheckoutPageProps {
   onNavigate: (page: string) => void;
 }
 
+// NOTE: InputField must be defined at module scope. Defining it inside the
+// CheckoutPage render body would create a new component type on every render,
+// remounting all inputs on each keystroke (losing focus and typed values).
+function InputField({
+  label,
+  type = 'text',
+  value,
+  onChange,
+  error,
+  placeholder,
+  colSpan = 1,
+}: {
+  label: string;
+  type?: string;
+  value: string;
+  onChange: (value: string) => void;
+  error?: string;
+  placeholder?: string;
+  colSpan?: number;
+}) {
+  const isDark = useStore((s) => s.theme) === 'dark';
+  return (
+    <div className={colSpan === 2 ? 'sm:col-span-2' : ''}>
+      <label className={`text-sm font-medium mb-1.5 block ${isDark ? 'text-white/70' : 'text-gray-700'}`}>
+        {label} <span className="text-red-400">*</span>
+      </label>
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={`w-full px-4 py-3 rounded-lg text-sm outline-none transition-colors ${
+          error
+            ? 'border-2 border-red-500 bg-red-500/5'
+            : isDark
+              ? 'bg-white/5 text-white border border-white/10 focus:border-accent'
+              : 'bg-gray-50 text-gray-900 border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent'
+        }`}
+        placeholder={placeholder || label}
+      />
+      {error && (
+        <p className="text-red-400 text-xs mt-1 flex items-center gap-1">
+          <AlertCircle size={12} /> {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
   const { t, language } = useTranslation();
   const { formatPrice } = useCurrency();
@@ -124,7 +172,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
       customer: shippingData,
       items: cart.map((item) => ({
         productId: item.product.id,
-        productName: item.product.name.en,
+        productName: item.product.name[language],
         price: item.product.price,
         quantity: item.quantity,
         size: item.size,
@@ -179,48 +227,6 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
       </section>
     );
   }
-
-  const InputField = ({
-    label,
-    type = 'text',
-    value,
-    onChange,
-    error,
-    placeholder,
-    colSpan = 1,
-  }: {
-    label: string;
-    type?: string;
-    value: string;
-    onChange: (value: string) => void;
-    error?: string;
-    placeholder?: string;
-    colSpan?: number;
-  }) => (
-    <div className={colSpan === 2 ? 'sm:col-span-2' : ''}>
-      <label className={`text-sm font-medium mb-1.5 block ${isDark ? 'text-white/70' : 'text-gray-700'}`}>
-        {label} <span className="text-red-400">*</span>
-      </label>
-      <input
-        type={type}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={`w-full px-4 py-3 rounded-lg text-sm outline-none transition-colors ${
-          error
-            ? 'border-2 border-red-500 bg-red-500/5'
-            : isDark
-              ? 'bg-white/5 text-white border border-white/10 focus:border-accent'
-              : 'bg-gray-50 text-gray-900 border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent'
-        }`}
-        placeholder={placeholder || label}
-      />
-      {error && (
-        <p className="text-red-400 text-xs mt-1 flex items-center gap-1">
-          <AlertCircle size={12} /> {error}
-        </p>
-      )}
-    </div>
-  );
 
   return (
     <section className={`pt-28 lg:pt-36 pb-20 min-h-screen ${isDark ? 'bg-dark' : 'bg-light'}`}>
@@ -372,7 +378,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                     <div className="space-y-4 mb-6">
                       <div>
                         <label className={`text-sm font-medium mb-1.5 block ${isDark ? 'text-white/70' : 'text-gray-700'}`}>
-                          Card Number <span className="text-red-400">*</span>
+                          {t('checkout.cardNumber')} <span className="text-red-400">*</span>
                         </label>
                         <input
                           type="text"
@@ -397,7 +403,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className={`text-sm font-medium mb-1.5 block ${isDark ? 'text-white/70' : 'text-gray-700'}`}>
-                            Expiry <span className="text-red-400">*</span>
+                            {t('checkout.expiry')} <span className="text-red-400">*</span>
                           </label>
                           <input
                             type="text"
@@ -421,7 +427,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                         </div>
                         <div>
                           <label className={`text-sm font-medium mb-1.5 block ${isDark ? 'text-white/70' : 'text-gray-700'}`}>
-                            CVV <span className="text-red-400">*</span>
+                            {t('checkout.cvv')} <span className="text-red-400">*</span>
                           </label>
                           <input
                             type="text"
@@ -460,7 +466,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                       onClick={handleShowConfirmation}
                       className="flex-1 py-4 bg-accent hover:bg-accent-dark text-white rounded-xl font-medium transition-all shadow-lg shadow-accent/25"
                     >
-                      Review Order
+                      {t('checkout.reviewOrder')}
                     </button>
                   </div>
                 </motion.div>
@@ -476,7 +482,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
               </h3>
               <div className="space-y-3 mb-4">
                 {cart.map((item) => (
-                  <div key={`${item.product.id}-${item.size}`} className="flex gap-3">
+                  <div key={`${item.product.id}-${item.size}-${item.color}`} className="flex gap-3">
                     <img src={item.product.image} alt="" className="w-12 h-14 object-cover rounded-lg" />
                     <div className="flex-1 min-w-0">
                       <p className={`text-sm truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.product.name[language]}</p>
@@ -528,12 +534,12 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
               className={`relative w-full max-w-lg rounded-2xl p-6 ${isDark ? 'bg-dark-card' : 'bg-white'}`}
             >
               <h3 className={`text-xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Confirm Your Order
+                {t('checkout.confirmOrder')}
               </h3>
 
               <div className={`space-y-4 mb-6 p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
                 <div>
-                  <p className={`text-xs mb-1 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>Shipping To:</p>
+                  <p className={`text-xs mb-1 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{t('checkout.shippingTo')}:</p>
                   <p className={`text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>
                     {shippingData.firstName} {shippingData.lastName}
                   </p>
@@ -546,7 +552,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
                 </div>
 
                 <div className={`pt-4 border-t ${isDark ? 'border-white/10' : 'border-gray-200'}`}>
-                  <p className={`text-xs mb-1 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>Payment Method:</p>
+                  <p className={`text-xs mb-1 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{t('checkout.paymentMethod')}:</p>
                   <p className={`text-sm capitalize ${isDark ? 'text-white' : 'text-gray-900'}`}>
                     {paymentMethods.find((p) => p.key === selectedPayment)?.label}
                   </p>
@@ -554,7 +560,7 @@ export default function CheckoutPage({ onNavigate }: CheckoutPageProps) {
 
                 <div className={`pt-4 border-t ${isDark ? 'border-white/10' : 'border-gray-200'}`}>
                   <div className="flex justify-between">
-                    <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>Total Amount:</span>
+                    <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{t('checkout.totalAmount')}:</span>
                     <span className="text-accent font-bold text-lg">{formatPrice(total)}</span>
                   </div>
                 </div>

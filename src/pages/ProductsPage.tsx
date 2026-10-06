@@ -162,7 +162,7 @@ export default function ProductsPage({ initialCategory }: ProductsPageProps) {
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
               <p className={`text-lg ${isDark ? 'text-white/40' : 'text-gray-400'}`}>
-                No products found in this category.
+                {t('search.noCategory')}
               </p>
             </div>
           )}

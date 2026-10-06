@@ -195,6 +195,47 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'Something went wrong',
     'general.success': 'Success!',
     'general.added': 'Added to cart!',
+    // Checkout extras
+    'checkout.reviewOrder': 'Review Order',
+    'checkout.confirmOrder': 'Confirm Your Order',
+    'checkout.shippingTo': 'Shipping To',
+    'checkout.paymentMethod': 'Payment Method',
+    'checkout.totalAmount': 'Total Amount',
+    'checkout.cardNumber': 'Card Number',
+    'checkout.expiry': 'Expiry',
+    'checkout.cvv': 'CVV',
+
+    // Search
+    'search.results': '{count} results for "{query}"',
+    'search.noResults': 'No products found for "{query}"',
+    'search.noCategory': 'No products found in this category.',
+
+    // Wishlist
+    'wishlist.title': 'Wishlist',
+    'wishlist.empty': 'Your wishlist is empty',
+
+    // Account
+    'account.orders': 'My Orders',
+    'account.settings': 'Settings',
+
+    // Testimonials
+    'testimonials.subtitle': 'TESTIMONIALS',
+    'testimonials.title': 'What Our Clients Say',
+
+    // Hero stats
+    'hero.customers': 'Customers',
+    'hero.products': 'Products',
+    'hero.satisfaction': 'Satisfaction',
+
+    // About stats
+    'about.customers': 'Happy Customers',
+    'about.products': 'Premium Products',
+    'about.countries': 'Countries Served',
+    'about.awards': 'Awards Won',
+
+    // Footer
+    'footer.adminPanel': 'Admin Panel',
+    'footer.madeWith': 'Made with ❤️ for modern gentlemen',
   },
 
   ar: {
@@ -359,6 +400,47 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'حدث خطأ ما',
     'general.success': 'تم بنجاح!',
     'general.added': 'تمت الإضافة للسلة!',
+    // Checkout extras
+    'checkout.reviewOrder': 'مراجعة الطلب',
+    'checkout.confirmOrder': 'تأكيد طلبك',
+    'checkout.shippingTo': 'الشحن إلى',
+    'checkout.paymentMethod': 'طريقة الدفع',
+    'checkout.totalAmount': 'المبلغ الإجمالي',
+    'checkout.cardNumber': 'رقم البطاقة',
+    'checkout.expiry': 'تاريخ الانتهاء',
+    'checkout.cvv': 'رمز CVV',
+
+    // Search
+    'search.results': '{count} نتيجة لـ "{query}"',
+    'search.noResults': 'لا توجد منتجات لـ "{query}"',
+    'search.noCategory': 'لا توجد منتجات في هذا القسم.',
+
+    // Wishlist
+    'wishlist.title': 'المفضلة',
+    'wishlist.empty': 'قائمة المفضلة فارغة',
+
+    // Account
+    'account.orders': 'طلباتي',
+    'account.settings': 'الإعدادات',
+
+    // Testimonials
+    'testimonials.subtitle': 'آراء العملاء',
+    'testimonials.title': 'ماذا يقول عملاؤنا',
+
+    // Hero stats
+    'hero.customers': 'عميل',
+    'hero.products': 'منتج',
+    'hero.satisfaction': 'نسبة الرضا',
+
+    // About stats
+    'about.customers': 'عميل سعيد',
+    'about.products': 'منتج فاخر',
+    'about.countries': 'دولة نخدمها',
+    'about.awards': 'جائزة',
+
+    // Footer
+    'footer.adminPanel': 'لوحة الإدارة',
+    'footer.madeWith': 'صُنع بـ ❤️ للرجال العصريين',
   },
 
   fr: {
@@ -523,6 +605,47 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'Une erreur est survenue',
     'general.success': 'Succès!',
     'general.added': 'Ajouté au panier!',
+    // Checkout extras
+    'checkout.reviewOrder': 'Vérifier la commande',
+    'checkout.confirmOrder': 'Confirmez votre commande',
+    'checkout.shippingTo': 'Livrer à',
+    'checkout.paymentMethod': 'Mode de paiement',
+    'checkout.totalAmount': 'Montant total',
+    'checkout.cardNumber': 'Numéro de carte',
+    'checkout.expiry': 'Expiration',
+    'checkout.cvv': 'CVV',
+
+    // Search
+    'search.results': '{count} résultats pour "{query}"',
+    'search.noResults': 'Aucun produit trouvé pour "{query}"',
+    'search.noCategory': 'Aucun produit trouvé dans cette catégorie.',
+
+    // Wishlist
+    'wishlist.title': 'Liste de souhaits',
+    'wishlist.empty': 'Votre liste de souhaits est vide',
+
+    // Account
+    'account.orders': 'Mes commandes',
+    'account.settings': 'Paramètres',
+
+    // Testimonials
+    'testimonials.subtitle': 'TÉMOIGNAGES',
+    'testimonials.title': 'Ce que disent nos clients',
+
+    // Hero stats
+    'hero.customers': 'Clients',
+    'hero.products': 'Produits',
+    'hero.satisfaction': 'Satisfaction',
+
+    // About stats
+    'about.customers': 'Clients satisfaits',
+    'about.products': 'Produits premium',
+    'about.countries': 'Pays desservis',
+    'about.awards': 'Prix remportés',
+
+    // Footer
+    'footer.adminPanel': "Panneau d'administration",
+    'footer.madeWith': 'Fait avec ❤️ pour les gentlemen modernes',
   },
 
   es: {
@@ -687,6 +810,47 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'Algo salió mal',
     'general.success': '¡Éxito!',
     'general.added': '¡Añadido al carrito!',
+    // Checkout extras
+    'checkout.reviewOrder': 'Revisar pedido',
+    'checkout.confirmOrder': 'Confirme su pedido',
+    'checkout.shippingTo': 'Enviar a',
+    'checkout.paymentMethod': 'Método de pago',
+    'checkout.totalAmount': 'Importe total',
+    'checkout.cardNumber': 'Número de tarjeta',
+    'checkout.expiry': 'Vencimiento',
+    'checkout.cvv': 'CVV',
+
+    // Search
+    'search.results': '{count} resultados para "{query}"',
+    'search.noResults': 'No se encontraron productos para "{query}"',
+    'search.noCategory': 'No se encontraron productos en esta categoría.',
+
+    // Wishlist
+    'wishlist.title': 'Lista de deseos',
+    'wishlist.empty': 'Tu lista de deseos está vacía',
+
+    // Account
+    'account.orders': 'Mis pedidos',
+    'account.settings': 'Configuración',
+
+    // Testimonials
+    'testimonials.subtitle': 'TESTIMONIOS',
+    'testimonials.title': 'Lo que dicen nuestros clientes',
+
+    // Hero stats
+    'hero.customers': 'Clientes',
+    'hero.products': 'Productos',
+    'hero.satisfaction': 'Satisfacción',
+
+    // About stats
+    'about.customers': 'Clientes felices',
+    'about.products': 'Productos premium',
+    'about.countries': 'Países atendidos',
+    'about.awards': 'Premios ganados',
+
+    // Footer
+    'footer.adminPanel': 'Panel de administración',
+    'footer.madeWith': 'Hecho con ❤️ para caballeros modernos',
   },
 
   de: {
@@ -851,6 +1015,47 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'Ein Fehler ist aufgetreten',
     'general.success': 'Erfolg!',
     'general.added': 'Zum Warenkorb hinzugefügt!',
+    // Checkout extras
+    'checkout.reviewOrder': 'Bestellung prüfen',
+    'checkout.confirmOrder': 'Bestellung bestätigen',
+    'checkout.shippingTo': 'Lieferung an',
+    'checkout.paymentMethod': 'Zahlungsmethode',
+    'checkout.totalAmount': 'Gesamtbetrag',
+    'checkout.cardNumber': 'Kartennummer',
+    'checkout.expiry': 'Ablaufdatum',
+    'checkout.cvv': 'CVV',
+
+    // Search
+    'search.results': '{count} Ergebnisse für "{query}"',
+    'search.noResults': 'Keine Produkte für "{query}" gefunden',
+    'search.noCategory': 'Keine Produkte in dieser Kategorie gefunden.',
+
+    // Wishlist
+    'wishlist.title': 'Wunschliste',
+    'wishlist.empty': 'Deine Wunschliste ist leer',
+
+    // Account
+    'account.orders': 'Meine Bestellungen',
+    'account.settings': 'Einstellungen',
+
+    // Testimonials
+    'testimonials.subtitle': 'KUNDENSTIMMEN',
+    'testimonials.title': 'Was unsere Kunden sagen',
+
+    // Hero stats
+    'hero.customers': 'Kunden',
+    'hero.products': 'Produkte',
+    'hero.satisfaction': 'Zufriedenheit',
+
+    // About stats
+    'about.customers': 'Zufriedene Kunden',
+    'about.products': 'Premium-Produkte',
+    'about.countries': 'Bediente Länder',
+    'about.awards': 'Gewonnene Auszeichnungen',
+
+    // Footer
+    'footer.adminPanel': 'Admin-Bereich',
+    'footer.madeWith': 'Mit ❤️ für moderne Gentlemen gemacht',
   },
 
   tr: {
@@ -1015,5 +1220,46 @@ export const translations: Record<Language, Record<string, string>> = {
     'general.error': 'Bir hata oluştu',
     'general.success': 'Başarılı!',
     'general.added': 'Sepete eklendi!',
+    // Checkout extras
+    'checkout.reviewOrder': 'Siparişi İncele',
+    'checkout.confirmOrder': 'Siparişinizi Onaylayın',
+    'checkout.shippingTo': 'Teslimat',
+    'checkout.paymentMethod': 'Ödeme Yöntemi',
+    'checkout.totalAmount': 'Toplam Tutar',
+    'checkout.cardNumber': 'Kart Numarası',
+    'checkout.expiry': 'Son Kullanma',
+    'checkout.cvv': 'CVV',
+
+    // Search
+    'search.results': '"{query}" için {count} sonuç',
+    'search.noResults': '"{query}" için ürün bulunamadı',
+    'search.noCategory': 'Bu kategoride ürün bulunamadı.',
+
+    // Wishlist
+    'wishlist.title': 'İstek Listesi',
+    'wishlist.empty': 'İstek listeniz boş',
+
+    // Account
+    'account.orders': 'Siparişlerim',
+    'account.settings': 'Ayarlar',
+
+    // Testimonials
+    'testimonials.subtitle': 'MÜŞTERİ YORUMLARI',
+    'testimonials.title': 'Müşterilerimiz Ne Diyor',
+
+    // Hero stats
+    'hero.customers': 'Müşteri',
+    'hero.products': 'Ürün',
+    'hero.satisfaction': 'Memnuniyet',
+
+    // About stats
+    'about.customers': 'Mutlu Müşteri',
+    'about.products': 'Premium Ürün',
+    'about.countries': 'Hizmet Verilen Ülke',
+    'about.awards': 'Kazanılan Ödül',
+
+    // Footer
+    'footer.adminPanel': 'Yönetim Paneli',
+    'footer.madeWith': 'Modern beyefendiler için ❤️ ile yapıldı',
   },
 };
