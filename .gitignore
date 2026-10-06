@@ -18,3 +18,6 @@ npm-debug.log*
 
 # Test caches
 .cache
+
+# standalone git history of the template (for its own GitHub repo)
+hospital-template/.git
