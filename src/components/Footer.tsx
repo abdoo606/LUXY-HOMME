@@ -127,10 +127,10 @@ export default function Footer({ onNavigate }: FooterProps) {
               onClick={() => onNavigate('admin')}
               className="text-white/20 text-xs hover:text-accent transition-colors"
             >
-              Admin Panel
+              {t('footer.adminPanel')}
             </button>
             <p className="text-white/20 text-xs">
-              Made with ❤️ for modern gentlemen
+              {t('footer.madeWith')}
             </p>
           </div>
         </div>

@@ -37,7 +37,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Phone validation - allows international formats
 const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
 
-// Credit card validation (basic Luhn check)
+// Credit card validation (length + digits; Luhn check omitted for demo purposes)
 const cardRegex = /^[0-9]{13,19}$/;
 
 // CVV validation
@@ -230,11 +230,12 @@ export function validatePaymentForm(data: PaymentFormData, paymentMethod: string
   } else if (!expiryRegex.test(data.cardExpiry.trim())) {
     errors.cardExpiry = msg.invalidExpiry;
   } else {
-    // Check if card is expired
+    // Check if card is expired (valid through the last day of its expiry month)
     const [month, year] = data.cardExpiry.split('/').map(Number);
-    const expiry = new Date(2000 + year, month - 1);
+    // First moment of the month AFTER the expiry month
+    const expiry = new Date(2000 + year, month, 1);
     const now = new Date();
-    if (expiry < now) {
+    if (expiry <= now) {
       errors.cardExpiry = msg.expiredCard;
     }
   }

@@ -37,14 +37,14 @@ export default function SearchPage() {
             className="mb-10"
           >
             <div className="relative">
-              <Search size={22} className={`absolute left-5 top-1/2 -translate-y-1/2 ${isDark ? 'text-white/30' : 'text-gray-400'}`} />
+              <Search size={22} className={`absolute start-5 top-1/2 -translate-y-1/2 ${isDark ? 'text-white/30' : 'text-gray-400'}`} />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 autoFocus
                 placeholder={t('nav.search')}
-                className={`w-full pl-14 pr-12 py-5 rounded-2xl text-lg outline-none transition-colors ${
+                className={`w-full ps-14 pe-12 py-5 rounded-2xl text-lg outline-none transition-colors ${
                   isDark
                     ? 'bg-dark-card text-white placeholder:text-white/30 border border-white/10 focus:border-accent'
                     : 'bg-white text-gray-900 placeholder:text-gray-400 border border-gray-200 focus:border-accent shadow-sm'
@@ -53,7 +53,7 @@ export default function SearchPage() {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className={`absolute right-5 top-1/2 -translate-y-1/2 ${isDark ? 'text-white/30 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
+                  className={`absolute end-5 top-1/2 -translate-y-1/2 ${isDark ? 'text-white/30 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
                 >
                   <X size={20} />
                 </button>
@@ -63,7 +63,7 @@ export default function SearchPage() {
 
           {query && (
             <p className={`text-sm mb-6 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>
-              {results.length} results for "{query}"
+              {t('search.results').replace('{count}', String(results.length)).replace('{query}', query)}
             </p>
           )}
 
@@ -82,7 +82,7 @@ export default function SearchPage() {
             <div className="text-center py-20">
               <Search size={64} className={`mx-auto mb-6 ${isDark ? 'text-white/20' : 'text-gray-300'}`} />
               <p className={`text-lg ${isDark ? 'text-white/40' : 'text-gray-400'}`}>
-                No products found for "{query}"
+                {t('search.noResults').replace('{query}', query)}
               </p>
             </div>
           )}

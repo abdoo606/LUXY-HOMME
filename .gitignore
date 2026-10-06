@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+dist-test
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.DS_Store
+.idea
+.vscode
+*.local
+
+# Test caches
+.cache
+
+# standalone git history of the template (for its own GitHub repo)
+hospital-template/.git

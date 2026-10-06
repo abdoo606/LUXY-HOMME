@@ -32,7 +32,7 @@ export default function WishlistPage({ onNavigate }: WishlistPageProps) {
           >
             <Heart size={40} className="text-accent mx-auto mb-4" />
             <h1 className={`text-3xl lg:text-4xl font-display font-bold ${isDark ? 'text-white' : 'text-primary'}`}>
-              Wishlist
+              {t('wishlist.title')}
             </h1>
             <p className={`mt-2 ${isDark ? 'text-white/40' : 'text-gray-500'}`}>
               {wishlistProducts.length} {t('cart.items')}
@@ -43,7 +43,7 @@ export default function WishlistPage({ onNavigate }: WishlistPageProps) {
             <div className="text-center py-20">
               <Heart size={64} className={`mx-auto mb-6 ${isDark ? 'text-white/20' : 'text-gray-300'}`} />
               <p className={`text-lg mb-6 ${isDark ? 'text-white/40' : 'text-gray-400'}`}>
-                Your wishlist is empty
+                {t('wishlist.empty')}
               </p>
               <button
                 onClick={() => onNavigate('products')}

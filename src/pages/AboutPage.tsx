@@ -65,10 +65,10 @@ export default function AboutPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { value: '50K+', label: 'Happy Customers', icon: Users },
-            { value: '200+', label: 'Premium Products', icon: Gem },
-            { value: '30+', label: 'Countries Served', icon: Globe },
-            { value: '15+', label: 'Awards Won', icon: Award },
+            { value: '50K+', label: t('about.customers'), icon: Users },
+            { value: '200+', label: t('about.products'), icon: Gem },
+            { value: '30+', label: t('about.countries'), icon: Globe },
+            { value: '15+', label: t('about.awards'), icon: Award },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { useStore } from '../store/useStore';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function Testimonials() {
+  const { t } = useTranslation();
   const theme = useStore((s) => s.theme);
   const isDark = theme === 'dark';
 
@@ -39,14 +41,14 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="text-accent text-sm font-medium tracking-[0.2em] uppercase">TESTIMONIALS</span>
+          <span className="text-accent text-sm font-medium tracking-[0.2em] uppercase">{t('testimonials.subtitle')}</span>
           <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-display font-bold mt-3 ${isDark ? 'text-white' : 'text-primary'}`}>
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.map((t, i) => (
+          {testimonials.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -57,18 +59,18 @@ export default function Testimonials() {
             >
               <Quote size={32} className="text-accent/20 mb-4" />
               <div className="flex gap-1 mb-4">
-                {[...Array(t.rating)].map((_, j) => (
+                {[...Array(item.rating)].map((_, j) => (
                   <Star key={j} size={14} className="text-amber-400 fill-amber-400" />
                 ))}
               </div>
               <p className={`text-sm leading-relaxed mb-6 ${isDark ? 'text-white/60' : 'text-gray-600'}`}>
-                "{t.text}"
+                "{item.text}"
               </p>
               <div className="flex items-center gap-3">
-                <span className="text-3xl">{t.avatar}</span>
+                <span className="text-3xl">{item.avatar}</span>
                 <div>
-                  <p className={`font-bold text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{t.name}</p>
-                  <p className={`text-xs ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{t.role}</p>
+                  <p className={`font-bold text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.name}</p>
+                  <p className={`text-xs ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{item.role}</p>
                 </div>
               </div>
             </motion.div>

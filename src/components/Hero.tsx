@@ -96,9 +96,9 @@ export default function Hero({ onNavigate }: HeroProps) {
             className={`flex gap-8 sm:gap-12 mt-16 pt-8 border-t ${isDark ? 'border-white/10' : 'border-gray-200'}`}
           >
             {[
-              { value: '50K+', label: 'Customers' },
-              { value: '200+', label: 'Products' },
-              { value: '99%', label: 'Satisfaction' },
+              { value: '50K+', label: t('hero.customers') },
+              { value: '200+', label: t('hero.products') },
+              { value: '99%', label: t('hero.satisfaction') },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl sm:text-3xl font-bold text-accent font-display">{stat.value}</div>

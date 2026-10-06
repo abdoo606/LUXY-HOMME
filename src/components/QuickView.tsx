@@ -48,7 +48,7 @@ export default function QuickView({ product, onClose }: QuickViewProps) {
         >
           <button
             onClick={onClose}
-            className={`absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isDark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+            className={`absolute top-4 end-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isDark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
           >
             <X size={20} />
           </button>

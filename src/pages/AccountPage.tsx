@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Lock, LogOut, Package, Heart, Settings } from 'lucide-react';
 import { useStore } from '../store/useStore';
+import { useAdminStore } from '../store/adminStore';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface AccountPageProps {
@@ -10,7 +11,8 @@ interface AccountPageProps {
 
 export default function AccountPage({ onNavigate }: AccountPageProps) {
   const { t } = useTranslation();
-  const { theme, isAuthenticated, user, login, logout } = useStore();
+  const { theme, isAuthenticated, user, login, logout, wishlist } = useStore();
+  const { orders } = useAdminStore();
   const isDark = theme === 'dark';
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState('');
@@ -44,9 +46,9 @@ export default function AccountPage({ onNavigate }: AccountPageProps) {
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { icon: Package, label: 'My Orders', count: 3 },
-                  { icon: Heart, label: 'Wishlist', count: 5, page: 'wishlist' },
-                  { icon: Settings, label: 'Settings', count: 0 },
+                  { icon: Package, label: t('account.orders'), count: orders.length },
+                  { icon: Heart, label: t('wishlist.title'), count: wishlist.length, page: 'wishlist' },
+                  { icon: Settings, label: t('account.settings'), count: 0 },
                 ].map((item) => (
                   <button
                     key={item.label}
@@ -59,7 +61,7 @@ export default function AccountPage({ onNavigate }: AccountPageProps) {
                     <div className="text-left">
                       <p className={`font-medium text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.label}</p>
                       {item.count > 0 && (
-                        <p className={`text-xs ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{item.count} items</p>
+                        <p className={`text-xs ${isDark ? 'text-white/40' : 'text-gray-500'}`}>{item.count} {t('cart.items')}</p>
                       )}
                     </div>
                   </button>
